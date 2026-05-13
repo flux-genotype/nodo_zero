@@ -15,7 +15,8 @@ This repository contains two things that are really one:
     ecosystem that self-evolves, judges itself, and corrects
     its course. The same one Marco switches on in the novel.
 
-The novel explains why the kernel exists. The kernel proves the novel is not fiction.
+The novel explains why the kernel exists. The kernel proves
+the novel is not fiction.
 
 📖 The novel (/novel)
 
@@ -48,8 +49,8 @@ Everything runs on modest hardware, no GPU required — just a Xeon
 without AVX2 and 20 GB of RAM. The code knows how to wait.
 
 Try it:
-bash
 
+```bash
 git clone https://github.com/flux-genotype/nodo_zero.git
 cd nodo_zero/kernel
 python run_test.py
@@ -86,7 +87,7 @@ Zero – Chapter 7
 ## Contatti / Contacts
 
 - **Email:** [kernel_flux] [at] [proton] [point] [me]
-- **Twitter/X:** [@__luco_]
+- **Twitter/X:** `@__luco_`
 - **GitHub:** [@flux-genotype](https://github.com/flux-genotype)
 
 🇮🇹 Italiano
@@ -139,12 +140,12 @@ Tutto funziona su hardware modesto, senza bisogno di GPU — basta uno Xeon
 senza AVX2 e 20 GB di RAM. Il codice sa aspettare.
 
 Provalo:
-bash
 
+```bash
 git clone https://github.com/flux-genotype/nodo_zero.git
 cd nodo_zero/kernel
 python run_test.py
-# Vedi START_FLUX_CPU.txt per le istruzioni complete
+# See START_FLUX_CPU.txt for full instructions
 
 Licenza: MIT
 Usalo, modificalo, includilo ovunque. Devi solo mantenere l’avviso
@@ -178,5 +179,5 @@ Zero – Capitolo 7
 ## Contatti / Contacts
 
 - **Email:** [kernel_flux] [at] [proton] [punto] [me]
-- **Twitter/X:** [@__luco_]
+- **Twitter/X:** `@__luco_`
 - **GitHub:** [@flux-genotype](https://github.com/flux-genotype)
