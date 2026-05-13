@@ -1,0 +1,78 @@
+ECOSYSTEM_KW: "ECOSYSTEM"
+ENTITY_KW: "ENTITY"
+ATTRACTOR_KW: "ATTRACTOR"
+STAGE_KW: "STAGE"
+POLICY_KW: "POLICY"
+RECURSIVE_CONFIG_KW: "RECURSIVE_CONFIG"
+HUMAN_CONFIG_KW: "HUMAN_CONFIG"
+LBRACE: "{"
+RBRACE: "}"
+LBRACKET: "["
+RBRACKET: "]"
+COMMA: ","
+
+start: ecosystem
+
+ecosystem: ECOSYSTEM_KW ESCAPED_STRING LBRACE [ecosystem_body] RBRACE
+ecosystem_body: (entity_def | attractor_def | default_policy | osservabilita | policy_def)*
+
+entity_def: ENTITY_KW ESCAPED_STRING LBRACE [entity_body] RBRACE
+entity_body: (type_def | nature_def | quantum_state_def | costo_def | fallback_def | model_key_def | recursive_config_def | human_config_def)*
+
+attractor_def: ATTRACTOR_KW ESCAPED_STRING LBRACE attractor_body RBRACE
+attractor_body: on_intent_def stage_def+
+
+stage_def: STAGE_KW ESCAPED_STRING LBRACE [stage_body] RBRACE
+stage_body: (execute_def | temperature_def | max_new_tokens_def | prompt_transform_def | observe_def | ground_truth_def)*
+
+type_def: "TYPE:" entity_type
+entity_type: ENTITY_TYPE
+ENTITY_TYPE: "Model.Ensemble" | "Model.Transformer" | "Human.In.The.Loop" | "ECOSYSTEM" | "Recursive.Ensemble"
+
+nature_def: "NATURE:" ESCAPED_STRING
+quantum_state_def: "QUANTUM_STATE:" ESCAPED_STRING
+costo_def: "COSTO:" NUMBER
+fallback_def: "FALLBACK:" ESCAPED_STRING
+model_key_def: "MODEL_KEY:" ESCAPED_STRING
+
+recursive_config_def: RECURSIVE_CONFIG_KW LBRACE [recursive_config_body] RBRACE
+recursive_config_body: (max_chunk_tokens_def | chunk_overlap_def | sub_model_key_def | root_model_key_def | max_workers_def)*
+max_chunk_tokens_def: "MAX_CHUNK_TOKENS:" NUMBER
+chunk_overlap_def: "CHUNK_OVERLAP:" NUMBER
+sub_model_key_def: "SUB_MODEL_KEY:" ESCAPED_STRING
+root_model_key_def: "ROOT_MODEL_KEY:" ESCAPED_STRING
+max_workers_def: "MAX_WORKERS:" NUMBER
+
+human_config_def: HUMAN_CONFIG_KW LBRACE [human_config_body] RBRACE
+human_config_body: (human_timeout_def | human_escalation_def | human_confidence_threshold_def)*
+human_timeout_def: "TIMEOUT_SEC:" NUMBER
+human_escalation_def: "ESCALATION:" ESCAPED_STRING
+human_confidence_threshold_def: "CONFIDENCE_THRESHOLD:" NUMBER
+
+on_intent_def: "ON_INTENT:" LBRACKET [string_list] RBRACKET
+string_list: ESCAPED_STRING (COMMA ESCAPED_STRING)*
+
+execute_def: "EXECUTE:" ESCAPED_STRING
+temperature_def: "TEMPERATURE:" NUMBER
+max_new_tokens_def: "MAX_NEW_TOKENS:" NUMBER
+prompt_transform_def: "PROMPT_TRANSFORM:" ESCAPED_STRING
+observe_def: "OBSERVE:" ESCAPED_STRING
+ground_truth_def: "GROUND_TRUTH:" ESCAPED_STRING
+
+default_policy: "DEFAULT_POLICY:" ESCAPED_STRING
+osservabilita: "OSSERVABILITÀ:" ESCAPED_STRING
+
+policy_def: POLICY_KW LBRACE [policy_body] RBRACE
+policy_body: (max_cost | max_latency | max_human_iterations | judge_entity | require_judge)*
+max_cost: "MAX_COST_PER_REQUEST:" NUMBER
+max_latency: "MAX_LATENCY_MS:" NUMBER
+max_human_iterations: "MAX_HUMAN_ITERATIONS:" NUMBER
+judge_entity: "JUDGE_ENTITY:" ESCAPED_STRING
+require_judge: "REQUIRE_JUDGE:" ("true" | "false")
+
+%import common.ESCAPED_STRING
+%import common.SIGNED_NUMBER -> NUMBER
+%import common.WS
+%ignore WS
+%ignore /\/\/[^\n]*/
+%ignore /#[^\n]*/

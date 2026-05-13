@@ -1,0 +1,145 @@
+================================================================================
+STARTING FLUX KERNEL v2.2.0_alpha  (CPU-only, no AVX2, 20 GB RAM)
+WITH OLLAMA AS MULTI-MODEL BACKEND
+================================================================================
+
+PREREQUISITES
+- You have the folder ~/flux-kernel/ containing:
+    flux/               (the kernel)
+    examples/           (e.g. judge_demo.flux)
+    run_test.py         (test script updated for Ollama)
+    test_prompts.py     (question list)
+    backend_ollama.py   (backend for Ollama, replacing the old server)
+    requirements.txt
+- Ollama installed and models downloaded.
+- Network connection? Not needed: Ollama works locally.
+
+================================================================================
+1. PYTHON VIRTUAL ENVIRONMENT
+================================================================================
+
+Open a terminal and go to the kernel folder:
+
+    cd ~/flux-kernel
+
+Clean the Python cache (recommended before activating the venv):
+
+    find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null
+    find . -name "*.pyc" -delete
+
+Create the virtual environment (only the first time):
+
+    python3 -m venv venv
+
+Activate it (do this EVERY time you want to work with the kernel):
+
+    source venv/bin/activate
+
+Update pip and install dependencies:
+
+    pip install --upgrade pip
+    pip install -r requirements.txt
+
+================================================================================
+2. INSTALL OLLAMA (IF NOT ALREADY PRESENT)
+================================================================================
+
+If you haven't already installed Ollama on the system:
+
+    curl -fsSL https://ollama.com/install.sh | sh
+
+When finished, ensure the service can be started (you don't need to enable it as a daemon,
+you can launch it manually when needed).
+
+================================================================================
+3. DOWNLOAD LIGHTWEIGHT MODELS
+================================================================================
+
+For the test we recommend these models:
+
+deepseek-coder:6.7b        3.8 GB         
+qwen2.5-coder:3b           1.9 GB         
+llama3.2:3b                2.0 GB        
+tinyllama:latest           637 MB       
+hermes3:8b                 4.7 GB    
+
+
+Verify available models:
+
+    ollama list
+
+================================================================================
+4. START OLLAMA SERVER
+================================================================================
+
+From a NEW terminal (or in background) run:
+
+    ollama serve
+
+The server will listen on http://localhost:11434.
+Do not close this terminal while using the kernel.
+
+================================================================================
+5. BACKEND AND MODEL CONFIGURATION
+================================================================================
+
+The file backend_ollama.py is already ready: it points to localhost:11434/v1.
+You don't need to modify it.
+
+In run_test.py, the model mapping is at the line:
+
+    model_mapping={
+            "fast": "tinyllama:latest",               # intentionally weak
+            "judge-model": "llama3.2:3b",             # fixed judge
+            "architect": "hermes3:8b"        	      # (hermes3:8b or deepseek-coder:6.7b for more speed)
+        	  }
+
+If you have downloaded different models, you can change their names here (use the name exactly
+as it appears in `ollama list`).
+
+================================================================================
+6. TESTING THE FLUX KERNEL
+================================================================================
+
+Return to the terminal where you activated the venv (if not already activated, run
+'source ~/flux-kernel/venv/bin/activate').
+
+Move to the kernel folder:
+
+    cd ~/flux-kernel
+
+Run the test script:
+
+    python run_test.py
+
+Observe the output:
+- Responses from the "fast" model on each question.
+- Confidence score assigned by the judge.
+- Any automatic mutations (files saved in ./mutations/).
+- The Supervisor might move from GROWTH to PRODUCTION after some stable runs.
+
+Detailed logs are recorded in test_ollama.jsonl.
+
+================================================================================
+7. IMPORTANT NOTES
+================================================================================
+
+- Every time you open a new terminal, activate the venv:
+      source ~/flux-kernel/venv/bin/activate
+
+- Ollama serve must be running before run_test.py. Launch it in
+  a separate terminal and leave it active.
+
+- RAM: with 20 GB you can load TinyLlama + Phi-2 at the same time (total
+  about 2.8 GB). If the system starts swapping, close other programs or switch to
+  a single model.
+
+- Performance: on a Xeon without AVX2 expect 5-15 tokens/s depending on the model.
+  The test with 20 questions will take a few minutes.
+
+- If you want to stop Ollama, press Ctrl+C in the terminal where you launched
+  'ollama serve'.
+
+- To exit the venv: deactivate
+
+Enjoy testing Flux Kernel with Ollama!

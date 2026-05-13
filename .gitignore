@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+*.egg-info/
+dist/
+
+# Virtual environment
+.env
+.venv
+
+# Logs
+*.jsonl
+test.jsonl
+judge_demo.jsonl
+meta_designer_demo.jsonl
+
+# Ecosystem store (generated at runtime)
+eco_store/
+debug_architect/
+
+# Mutations (generated at runtime)
+mutations/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
