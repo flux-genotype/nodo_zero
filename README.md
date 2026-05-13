@@ -122,7 +122,8 @@ per vedere cosa succede dopo.
     File: SE QUESTO È UN ROBOT.pdf
 
     Licenza: Creative Commons BY-NC-SA 4.0
-    Condividilo, traducilo, adattalo — ma non venderlo. Se lo modifichi, rilascialo con la stessa licenza.
+    Condividilo, traducilo, adattalo — ma non venderlo.
+    Se lo modifichi, rilascialo con la stessa licenza.
 
 🧬 Il kernel (/kernel)
 
