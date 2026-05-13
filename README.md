@@ -55,6 +55,7 @@ git clone https://github.com/flux-genotype/nodo_zero.git
 cd nodo_zero/kernel
 python run_test.py
 # See START_FLUX_CPU.txt for full instructions
+```
 
 License: MIT
 Use it, modify it, include it anywhere. Just keep the original
@@ -146,6 +147,7 @@ git clone https://github.com/flux-genotype/nodo_zero.git
 cd nodo_zero/kernel
 python run_test.py
 # See START_FLUX_CPU.txt for full instructions
+```
 
 Licenza: MIT
 Usalo, modificalo, includilo ovunque. Devi solo mantenere l’avviso
