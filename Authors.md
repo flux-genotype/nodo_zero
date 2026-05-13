@@ -5,7 +5,7 @@
 ## Contatti / Contacts
 
 - **Email:** [kernel_flux] [at] [proton] [punto] [me]
-- **Twitter/X:** [@__luco_]
+- **Twitter/X:** `@__luco_`
 - **GitHub:** [@flux-genotype](https://github.com/flux-genotype)
 
 
