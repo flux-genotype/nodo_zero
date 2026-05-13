@@ -28,5 +28,5 @@ Nome: Luciano Taddei
 Contatti / Contacts
 
 - Email: kernel_flux at proton point me
-- Twitter/X: @__luco_
+- Twitter/X: `@__luco_`
 - GitHub: @flux-genotype (https://github.com/flux-genotype)
