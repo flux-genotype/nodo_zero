@@ -57,6 +57,13 @@ python run_test.py
 # See START_FLUX_CPU.txt for full instructions
 ```
 
+📜 The FLUX Manifesto
+
+FLUX is not just a configuration format: 
+it is an architectural description language (ADL).
+The complete manifesto, with the formal grammar, 
+theoretical foundations, and long-term vision,
+is available in /papers/FLUX_Kernel.pdf.
 License: MIT
 Use it, modify it, include it anywhere. Just keep the original
 copyright notice.
