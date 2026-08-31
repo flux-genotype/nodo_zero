@@ -1,3 +1,5 @@
+
+
 🇬🇧 English
 flux-genotype
 
@@ -54,7 +56,7 @@ Try it:
 git clone https://github.com/flux-genotype/nodo_zero.git
 cd nodo_zero/kernel
 python run_test.py
-# See START_FLUX_CPU.txt for full instructions
+# Ollama must be running at http://localhost:11434; see START_FLUX_CPU.txt for full instructions
 ```
 
 📜 The FLUX Manifesto
@@ -169,7 +171,7 @@ teorici e la visione a lungo termine,
 Licenza: MIT
 Usalo, modificalo, includilo ovunque. Devi solo mantenere l’avviso
 di copyright originale.
-Nota dello sviluppatore: il kernel è una versione alpha che ha bugs
+Nota dello svilupatore: il kernel è una versione alpha che ha bugs
 e funzioni da migliorare.
 
 ⚖️ Due licenze, un nodo
