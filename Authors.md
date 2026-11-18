@@ -1,6 +1,6 @@
 # Autore / Author
 
-**Nome:** Luciano Taddei
+**Nome:** Priss Stratton
 
 ## Contatti / Contacts
 
