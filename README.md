@@ -91,7 +91,7 @@ Zero – Chapter 7
 
 # Autore / Author
 
-**Nome:** Luciano Taddei
+**Nome:** Priss Stratton
 
 ## Contatti / Contacts
 
@@ -193,7 +193,7 @@ Zero – Capitolo 7
 
 # Autore / Author
 
-**Nome:** Luciano Taddei
+**Nome:** Priss Stratton
 
 ## Contatti / Contacts
 
