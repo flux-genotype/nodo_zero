@@ -32,7 +32,7 @@ Full license text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 
 Autore / Author
 
-Nome: Luciano Taddei
+Nome: Priss Stratton
 
 Contatti / Contacts
 
